@@ -19,7 +19,4 @@ jobs:
         run: gradle build
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag test-api:$(date +%s) --build-arg skipTests=true
-
-      - name: Push the Docker image
-        run: docker push test-api:$(date +%s)
+        run: docker build . --file Dockerfile --tag test-api:$(date +%s)
