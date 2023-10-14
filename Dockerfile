@@ -1,14 +1,12 @@
 FROM amazoncorretto:17.0.7-alpine
 
-MAINTAINER "Test"
-
 ENV POSTGRES_IMAGE postgres:12.2-alpine
 
 RUN apk --no-cache add curl jq
 
 WORKDIR /app
 
-COPY build /app
+COPY build/libs/test-service.jar app-service.jar
 
 ENTRYPOINT ["java"]
 
