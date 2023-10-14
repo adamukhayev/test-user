@@ -15,8 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Build the JAR
-        run: gradle build
-
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag test-api:$(date +%s)
+
+      - name: Build the JAR
+        run: gradle build
