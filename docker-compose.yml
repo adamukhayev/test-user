@@ -1,8 +1,8 @@
 version: '3.8'
 services:
   postgres:
-    build:
-      dockerfile: db/Dockerfile
+    image: postgres:12.2-alpine
+    restart: always
     ports:
       - "5432:5432"
     environment:
@@ -14,13 +14,11 @@ services:
 
 
   app:
-    build:
-      dockerfile: app/Dockerfile
+    build: .
     environment:
       - PORT=8080
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres/test_db
       - JS_URL=http://localhost
-    image: 'my-java-application'
     ports:
       - "8080:8080"
     depends_on:
