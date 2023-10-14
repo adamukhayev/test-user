@@ -15,20 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag test-api:$(date +%s)
-
-      - name: Start the PostgreSQL database
-        run: docker-compose up -d postgres
-
-      - name: Wait for the PostgreSQL database to be ready
-        run: until pg_isready -h localhost -p 5432 -d test_db; do sleep 1; done
-
       - name: Build the JAR
         run: gradle build
 
-      - name: Push the Docker image
-        run: docker push test-api:$(date +%s)
-
-      - name: Stop the PostgreSQL database
-        run: docker-compose down
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag test-api:$(date +%s)
