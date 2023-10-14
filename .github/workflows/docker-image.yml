@@ -12,6 +12,13 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: test_db
+
     steps:
       - uses: actions/checkout@v3
 
