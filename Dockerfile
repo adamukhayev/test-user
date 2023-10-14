@@ -1,11 +1,18 @@
-FROM amazoncorretto:17.0.1-alpine
+FROM amazoncorretto:17.0.7-alpine
+
+MAINTAINER "Test"
+
+ENV POSTGRES_IMAGE postgres:12.2-alpine
+
+RUN apk --no-cache add curl jq
 
 WORKDIR /app
 
-COPY . .
-
-RUN ./gradlew build
-
 COPY build/libs/test-service.jar app-service.jar
 
-CMD ["java", "-jar", "app-service.jar"]
+ENTRYPOINT ["java"]
+
+CMD [ "-XX:+PrintFlagsFinal", "-XX:+UnlockExperimentalVMOptions", "-XshowSettings:vm", \
+      "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app/app-service.jar" ]
+
+EXPOSE 8080
