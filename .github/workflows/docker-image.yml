@@ -16,6 +16,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Clear Docker cache
+        run: docker builder prune -a -f
+
       - name: Build the JAR
         run: gradle build
 
