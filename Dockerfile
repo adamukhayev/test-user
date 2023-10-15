@@ -6,6 +6,8 @@ RUN apk --no-cache add curl jq
 
 WORKDIR /app
 
+RUN mkdir -p build/libs
+
 COPY build/libs/test-service.jar app-service.jar
 
 ENTRYPOINT ["java"]
