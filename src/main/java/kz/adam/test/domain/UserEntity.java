@@ -2,10 +2,12 @@ package kz.adam.test.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "user", schema = "public")
 @AllArgsConstructor
@@ -17,7 +19,7 @@ public class UserEntity {
     @Column(name = "id")
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "accounts_seq")
+            generator = "user_seq")
     @SequenceGenerator(
             name = "user_seq",
             sequenceName = "public.user_id_seq", allocationSize = 1)
