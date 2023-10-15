@@ -1,13 +1,13 @@
-CREATE SCHEMA IF NOT EXISTS test;
+CREATE SCHEMA IF NOT EXISTS public;
 
-CREATE SEQUENCE IF NOT EXISTS test.user_id_seq
+CREATE SEQUENCE IF NOT EXISTS public.user_id_seq
     START WITH 100
     INCREMENT BY 1
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
 
-CREATE TABLE IF NOT EXISTS test.user (
-  id INTEGER DEFAULT nextval('test.user_id_seq'::regclass) PRIMARY KEY NOT NULL,
+CREATE TABLE IF NOT EXISTS public.user (
+  id INTEGER DEFAULT nextval('public.user_id_seq'::regclass) PRIMARY KEY NOT NULL,
   name VARCHAR NOT NULL
 );

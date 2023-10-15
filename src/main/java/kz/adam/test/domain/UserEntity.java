@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user", schema = "test")
+@Table(name = "user", schema = "public")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -20,7 +20,7 @@ public class UserEntity {
             generator = "accounts_seq")
     @SequenceGenerator(
             name = "user_seq",
-            sequenceName = "test.user_id_seq", allocationSize = 1)
+            sequenceName = "public.user_id_seq", allocationSize = 1)
     private Integer id;
 
     @Column(name = "name")

@@ -1,11 +1,10 @@
 spring:
   flyway:
     enabled: true
-    baseline-on-migrate: true
   application:
     name: Users API
   datasource:
-    url: "jdbc:postgresql://127.0.0.1:5432/test_db?currentSchema=test"
+    url: "jdbc:postgresql://127.0.0.1:5432/test_db?currentSchema=public"
     username: "test"
     password: "123"
     driver-class-name: org.postgresql.Driver

@@ -16,7 +16,7 @@ services:
     build: .
     environment:
       - PORT=8080
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres/test_db
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres/test_db?currentSchema=public
       - JS_URL=http://localhost
     ports:
       - "8080:8080"
