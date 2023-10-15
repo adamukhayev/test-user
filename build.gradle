@@ -45,4 +45,3 @@ tasks.named('test') {
 bootJar {
 	archiveFileName = "test-service.jar"
 }
-targetCompatibility = JavaVersion.VERSION_16
