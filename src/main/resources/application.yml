@@ -1,6 +1,7 @@
 spring:
   flyway:
     enabled: true
+    baseline-on-migrate: true
   application:
     name: Users API
   datasource:
