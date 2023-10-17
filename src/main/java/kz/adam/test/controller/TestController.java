@@ -1,5 +1,6 @@
 package kz.adam.test.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import kz.adam.test.modal.UserDto;
 import kz.adam.test.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ public class TestController {
 
     private final UserService userService;
 
+    @Operation(summary = "getUserById", description = "getUserById", tags = "TEST")
     @GetMapping("/{user_id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable("user_id") @NotBlank Integer userId) {
         log.info("User id: {}", userId);
@@ -26,11 +28,13 @@ public class TestController {
         return ResponseEntity.ok(userService.getUserById(userId));
     }
 
+    @Operation(summary = "getAllUser", description = "getAllUser", tags = "TEST")
     @GetMapping
     public  ResponseEntity<List<UserDto>> getAllUser() {
         return ResponseEntity.ok(userService.getAllUser());
     }
 
+    @Operation(summary = "saveUser", description = "saveUser", tags = "TEST")
     @PostMapping
     public ResponseEntity<UserDto> saveUser(@RequestBody @Valid UserDto userDto) {
         return ResponseEntity.ok(userService.saveUser(userDto));
